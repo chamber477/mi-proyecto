@@ -11,6 +11,10 @@ def extraer_datos():
     ]
     return datos
 
+def calcular_iva(precio, tasa=0.21):
+    """Calcula el IVA de un precio."""
+    return precio * tasa
+
 def calcular_total(datos):
     """Calcula el total de ventas."""
     total = sum(item["precio"] * item["cantidad"] for item in datos)
@@ -19,4 +23,6 @@ def calcular_total(datos):
 if __name__ == "__main__":
     datos = extraer_datos()
     total = calcular_total(datos)
+    iva = calcular_iva(total)
     print(f"Total de ventas: {total:,.2f} €")
+    print(f"Total de IVA: {iva:,.2f} €")
