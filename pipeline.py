@@ -1,7 +1,5 @@
 # pipeline.py -- Nuestro pipeline de datos básico
 
-# pipeline.py - Nuestro pipeline de datos básico
-
 def extraer_datos():
     """Simula extraer datos de una fuente."""
     datos = [
@@ -12,6 +10,10 @@ def extraer_datos():
     return datos
 
 def calcular_iva(precio, tasa=0.21):
+    """Calcula el IVA de un precio."""
+    return precio * tasa
+
+def calcular_ipsi(precio, tasa=0.11):
     """Calcula el IVA de un precio."""
     return precio * tasa
 
@@ -28,7 +30,9 @@ if __name__ == "__main__":
     datos = extraer_datos()
     total = calcular_total(datos)
     iva = calcular_iva(total)
+    ipsi = calcular_ipsi(total)
     descuento = aplicar_descuento(total)
     print(f"Total de ventas: {total:,.2f} €")
     print(f"Total de IVA: {iva:,.2f} €")
+    print(f"Total de IPSI: {ipsi:,.2f} €")
     print(f"Descuento mayorista: {descuento:,.2f} €")
